@@ -1,0 +1,4 @@
+Framework: net6.0
+SDK: Microsoft.NET.Sdk.Web
+Docker: Linux
+Libraries : Microsoft.VisualStudio.Azure.Containers.Tools.Targets Version=1.14.0
