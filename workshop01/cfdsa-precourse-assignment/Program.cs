@@ -1,10 +1,17 @@
 using cfdsa_precourse_assignment.Services;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ILandingPageService, LandingPageService>();
+
+builder.WebHost.ConfigureKestrel(options => options.Listen(IPAddress.Any, 80, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    })
+);
 
 var app = builder.Build();
 
